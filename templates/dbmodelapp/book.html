@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book DBModel</title>
+    <link rel="stylesheet" href="{%static '/css/mystyles.css'%}">
+</head>
+<body>
+<center>
+    <h1>The List of Books::</h1>
+    <hr />
+    <br />
+    {% if booklist%}
+    <table border="2" width="350">
+        <caption>Book - Details</caption>
+        <thead>
+            <th>Book Number</th>
+            <th>Title of the Book</th>
+            <th>Author of the book</th>
+            <th>Published Date</th>
+        </thead>
+        <tbody>
+            {% for book in booklist%}
+            <tr>
+                <td> {{book.number}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td> {{book.published_date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </center>
+    {%else%}
+        <p>No records found </p>
+    {% endif %}
+
+</body>
+</html>

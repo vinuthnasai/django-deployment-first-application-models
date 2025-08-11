@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book DBModel</title>
+    <link rel="stylesheet" href="{%static '/css/mystyles.css'%}">
+</head>
+<body>
+<center>
+    <h1>The List of customers</h1>
+    <hr />
+    <br />
+    {% if custlist%}
+    <table border="2" width="350">
+        <caption>customer - Details</caption>
+        <thead>
+            <th>customer name</th>
+            <th>cno</th>
+            <th>mail id</th>
+            <th>phone number</th>
+            <th>age</th>
+        </thead>
+        <tbody>
+            {% for cust in custlist%}
+            <tr>
+                <td> {{cust.name}}</td>
+                <td>{{cust.cno}}</td>
+                <td>{{cust.mail_id}}</td>
+                <td> {{cust.phone_number}}</td>
+                <td>{{ cust.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </center>
+    {%else%}
+        <p>No records found </p>
+    {% endif %}
+
+</body>
+</html>

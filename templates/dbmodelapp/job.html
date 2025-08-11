@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book DBModel</title>
+    <link rel="stylesheet" href="{%static '/css/mystyles.css'%}">
+</head>
+<body>
+<center>
+    <h1>The Job list</h1>
+    <hr />
+    <br />
+    {% if joblist%}
+    <table border="2" width="350">
+        <caption>Job - Details</caption>
+        <thead>
+            <th>posting date</th>
+            <th>location of job</th>
+            <th>salary offered</th>
+            <th>Qualification</th>
+        </thead>
+        <tbody>
+            {% for job in joblist%}
+            <tr>
+                <td> {{job.posting_date}}</td>
+                <td>{{job.location}}</td>
+                <td>{{job.offered_salary}}</td>
+                <td> {{job.qualification}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </center>
+    {%else%}
+        <p>No records found </p>
+    {% endif %}
+
+</body>
+</html>
